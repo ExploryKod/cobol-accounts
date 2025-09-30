@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon premier projet en COBOL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #333;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #e8e8e8;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            color: #b0b0b0;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .cobol-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #4a9eff, #0066cc);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
+        }
+
+        .iframe-container {
+            background: #333;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .iframe-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .iframely-embed {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .iframely-responsive {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #4a9eff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #66b3ff;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation d'entrée */
+        .container {
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="cobol-badge">COBOL</div>
+        <h1>Mon premier projet en COBOL</h1>
+        <p class="subtitle">Système de gestion bancaire avec consultation de solde, virements et retraits</p>
+        
+        <div class="iframe-container">
+            <div class="iframely-embed">
+                <div class="iframely-responsive" style="padding-bottom: 50%; padding-top: 120px;">
+                    <a href="https://github.com/ExploryKod/cobol-accounts" data-iframely-url="//iframely.net/6epBAI1O?theme=dark"></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Découvrez le code source sur <a href="https://github.com/ExploryKod/cobol-accounts" target="_blank">GitHub</a></p>
+        </div>
+    </div>
+    
+    <script async src="//iframely.net/embed.js"></script>
+</body>
+</html>
