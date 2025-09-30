@@ -10,9 +10,21 @@ TARGET = AccountMainManagement
 
 # Fichiers sources COBOL
 SOURCES = AccountMainManagement.cob ConsultBalance.cob Transfer.cob Withdrawal.cob
+WEB_SOURCES = WebBanking.cob ConsultBalance.cob Transfer.cob Withdrawal.cob
 
 # Règle par défaut
-all: $(TARGET)
+all: $(TARGET) web
+
+# Compilation de l'interface web
+web: WebBanking
+	@echo "🌐 Interface web compilée !"
+	@echo "🚀 Lancez avec: python3 web_server.py"
+
+# Compilation du programme web
+WebBanking: $(WEB_SOURCES)
+	@echo "🔨 Compilation de l'interface web COBOL..."
+	$(CC) $(CFLAGS) $(WEB_SOURCES)
+	@echo "✅ Interface web compilée !"
 
 # Compilation du programme principal
 $(TARGET): $(SOURCES)
@@ -36,10 +48,15 @@ run: $(TARGET)
 	@echo "🏦 Lancement du système bancaire..."
 	./$(TARGET)
 
+# Lancement du serveur web
+web-run: WebBanking
+	@echo "🌐 Lancement du serveur web..."
+	python3 web_server.py
+
 # Nettoyage des fichiers générés
 clean:
 	@echo "🧹 Nettoyage des fichiers..."
-	rm -f $(TARGET)
+	rm -f $(TARGET) WebBanking
 	rm -f *.o
 	rm -f *.so
 	@echo "✅ Nettoyage terminé"
@@ -66,10 +83,12 @@ check:
 # Affichage de l'aide
 help:
 	@echo "📋 Commandes disponibles :"
-	@echo "  make          - Compile le programme"
+	@echo "  make          - Compile le programme et l'interface web"
 	@echo "  make debug    - Compile en mode debug"
 	@echo "  make optimized- Compile en mode optimisé"
-	@echo "  make run      - Compile et exécute"
+	@echo "  make run      - Compile et exécute (terminal)"
+	@echo "  make web      - Compile l'interface web"
+	@echo "  make web-run  - Compile et lance le serveur web"
 	@echo "  make clean    - Nettoie les fichiers générés"
 	@echo "  make install  - Installe le programme"
 	@echo "  make uninstall- Désinstalle le programme"
@@ -77,7 +96,7 @@ help:
 	@echo "  make help     - Affiche cette aide"
 
 # Règles qui ne correspondent pas à des fichiers
-.PHONY: all debug optimized run clean install uninstall check help
+.PHONY: all debug optimized run web web-run clean install uninstall check help
 
 # Informations sur le projet
 info:

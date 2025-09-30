@@ -1,23 +1,37 @@
-# 🏦 Système de Gestion Bancaire COBOL
+# 🏦 Bancob - Système Bancaire COBOL
 
-Un système bancaire simple développé en COBOL avec interface terminal, permettant la consultation de solde, les virements entre comptes et les retraits.
+**Bancob** est un système bancaire moderne développé en COBOL avec une interface web élégante, permettant la gestion complète de comptes bancaires : virements en temps réel, retraits et consultation de soldes.
 
 ## 📋 Fonctionnalités
 
-- **Consultation de solde** : Affiche le solde du compte principal
-- **Virement** : Transfert d'argent entre deux comptes (compte 23 → compte 45)
-- **Retrait** : Retrait d'argent du compte principal
-- **Gestion d'erreurs** : Vérification des fonds suffisants
-- **Interface menu** : Navigation simple par numéros
+### 🌐 Interface Web Moderne
+- **Interface utilisateur élégante** : Design moderne avec animations et transitions
+- **Gestion en temps réel** : Mise à jour instantanée des soldes après chaque transaction
+- **Validation intelligente** : Limites dynamiques basées sur le solde disponible
+- **Responsive design** : Compatible mobile et desktop
+
+### 💰 Opérations Bancaires
+- **Virements entre comptes** : Transfert d'argent avec validation des fonds
+- **Retraits** : Retrait d'argent avec vérification du solde
+- **Consultation de soldes** : Affichage en temps réel des soldes disponibles
+- **Gestion d'erreurs** : Messages d'erreur clairs et informatifs
+
+### 🖥️ Interface Terminal (COBOL)
+- **Menu interactif** : Navigation simple par numéros
+- **Modules modulaires** : Architecture en modules séparés
+- **Gestion d'erreurs** : Codes de retour et validation
 
 ## 🏗️ Architecture
 
 ### Fichiers du projet
-- `AccountMainManagement.cob` - Programme principal et menu
+- `AccountMainManagement.cob` - Programme principal et menu COBOL
 - `ConsultBalance.cob` - Module de consultation de solde
 - `Transfer.cob` - Module de virement entre comptes
 - `Withdrawal.cob` - Module de retrait
-- `index.html` - Page de présentation web
+- `WebBanking.cob` - Module web banking
+- `banking_app.html` - **Interface web moderne de Bancob**
+- `index.html` - Page de présentation du projet
+- `web_server.py` - Serveur web Python (optionnel)
 
 ### Comptes par défaut
 - **Compte 1** : ID `00023`, Solde initial `02000.00`
@@ -156,27 +170,37 @@ Menu:
 - `1` : Fonds insuffisants
 - `2` : Erreur sur le compte destinataire
 
-## 🌐 Page Web de Présentation
+## 🌐 Interface Web Bancob
 
-Le projet inclut une page HTML moderne pour présenter le code :
+### 🚀 Accès à l'application
 ```bash
 # Lancer un serveur local
 python3 -m http.server 8000
 
 # Ouvrir dans le navigateur
-# http://localhost:8000
+# http://localhost:8000/banking_app.html
 ```
+
+### 🎨 Fonctionnalités de l'interface web
+- **Design moderne** : Interface élégante avec animations CSS
+- **Validation en temps réel** : Limites dynamiques basées sur le solde
+- **Mise à jour instantanée** : Soldes mis à jour après chaque transaction
+- **Responsive** : Compatible mobile et desktop
+- **UX optimisée** : Navigation intuitive et messages d'erreur clairs
 
 ## 📁 Structure du Projet
 ```
-cobol-accounts/
-├── AccountMainManagement.cob    # Programme principal
+bancob/
+├── AccountMainManagement.cob    # Programme principal COBOL
 ├── ConsultBalance.cob           # Module consultation
 ├── Transfer.cob                 # Module virement
 ├── Withdrawal.cob               # Module retrait
+├── WebBanking.cob               # Module web banking
+├── banking_app.html             # 🌐 Interface web Bancob
 ├── index.html                   # Page de présentation
-├── README.md                    # Cette documentation
-└── Makefile                     # Compilation automatique (optionnel)
+├── web_server.py                # Serveur web Python
+├── Makefile                     # Compilation automatique
+└── README.md                    # Cette documentation
 ```
 
 ## 🐛 Dépannage
